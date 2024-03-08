@@ -1,7 +1,7 @@
 const chalk = require('chalk');
 const { MongoClient } = require('mongodb');
 
-const uri = 'mongodb+srv://shubham:shubham999@sdubeydswtechnologies.vk31ks8.mongodb.net/';
+const uri = 'usedummy-mongo-url-is-here';
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
