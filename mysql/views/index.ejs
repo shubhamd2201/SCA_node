@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data render with SQL and EJS</title>
+</head>
+<body>
+    
+    <div class="table">
+        <h1>Student Details</h1>
+        <!-- <div class="input_box">
+           <form action="/api/studentd" method="get">
+                <input type="number" name="studentid">
+                <input type="submit">
+           </form>
+        </div> -->
+        <table>
+            <thead>
+                <tr>
+                    <td><strong>Roll No.</strong></td>
+                    <td><strong>Name</strong></td>
+                    <td><strong>Percent</strong></td>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(!status){%>
+                    <p><%=sqlerror%></p>
+                <%}else{
+                 studentdata.forEach(e=>{
+                    let {roll_no, sname, per} = e;%>
+                    <tr>
+                        <td><%=roll_no %></td>
+                        <td><%=sname %></td>
+                        <td><%=per %></td>
+                    </tr>
+                <%})}%>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+
+    <%- include("partials/header.ejs") %>
+
+   <section>
+    <div class="container">
+        <h1>welcome to EJS</h1>
+        <h2>Hello <%= name %></h2>
+    
+        <p>Sum of 10 and 20 is <%= 10 + 20 %></p>
+        <p>cube of 5 is <%= Math.pow(5, 3) %></p>
+        <% let a = 20;  let b = 30; let c = 10; %>
+        <p>sum of <%= a %> and <%= b %> is <%= a + b %></p>
+        <p>cube of <%= c %> is <%= Math.pow(c, 3) %></p>
+    
+        <% let d = 10;
+        if(d%2 == 0){%> 
+            <p><%= d %> is even</p>
+        <%}
+        else{%> <p><%= d %> is odd</p> <%}
+         for(let i = 1; i <= 10; i++){%>
+                 <p><strong><%=i%></strong></p> 
+                <%}%>
+    
+    
+    </div>
+   </section>
+
+
+
+
+<%- include("partials/footer.ejs") %>

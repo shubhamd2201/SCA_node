@@ -1,0 +1,5 @@
+MVC is Model-View-Controller 
+
+Model is bussiness rules or your conditions on product or website 
+View is show your data
+controller is make for controll data like routing function etc

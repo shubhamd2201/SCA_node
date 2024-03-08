@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>convert currency</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        input{height: 40px; padding: 0px 20px; border-radius: 5px; border:1px solid #d1d1d1; width: 100%; display:block;}
+        label{display: block; margin-bottom: 6px; font-size: 18px; text-transform: capitalize;}
+        .col_1{width: 100%; padding: 10px;}
+        .form_row{display: flex;flex-wrap: wrap;}
+        .form_main{margin: auto; padding: 20px; max-width: 500px; width: 100%;}
+        input[type="submit"]{max-width: 200px; cursor: pointer; font-size:14px; font-weight: bold; letter-spacing: 1px;}
+        input[type="submit"]:hover{background-color: rgb(6, 178, 6);color: #fff;}
+        .outputbox{display: flex; justify-content: space-between; align-items: center; height: 40px; border: 1px solid #d1d1d1; border-radius: 5px; padding: 0px 20px;}
+       
+    </style>
+</head>
+<body>
+    <div class="form_main">
+        <form action="/" method="POST">
+            <div class="form_row">
+                <div class="col_1">
+                    <label for="amount">Enter Amount</label>
+                    <input type="number" id="amount">
+                </div>
+                <div class="col_1">
+                    <select name="currency" id="currency">
+                        <option value="ind">India</option>
+                        <option value="us">USA</option>
+                        <option value="eu">Europe</option>
+                    </select>
+                </div>
+                <div class="col_1 finalcr">
+                    <p>Your Currency</p>
+                   <div class="outputbox">
+                    <span id="finalcurrency" >converted currency will show here</span>
+                    <span id="symbol"></span>
+                   </div>
+                   
+                </div>
+                <div class="col_1">
+                    <input type="submit" value="CONVERT" id="submit">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e){
+           
+            e.preventDefault();
+            let amount = document.querySelector('#amount').value;
+            
+            let hasallValue = true;
+            if(isNaN(amount)){
+                hasallValue = false;
+            }
+            let data = {amount:amount,convertTo:document.querySelector('select').value};
+
+
+           if(hasallValue){
+            fetch('http://localhost:8080/conversion/data', {
+            method: "POST", 
+            headers: {
+            "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data)}).then(response=>{
+                return response.json();
+            }).then(data=>{
+                document.querySelector('#finalcurrency').innerText = data.finalcr;
+                document.querySelector('#symbol').innerText = data.symbol;
+
+            }).catch(err=>{
+                alert(err);
+            });
+           }else{
+            alert('please fill all box');
+           }
+            
+        });
+
+        
+    </script>
+</body>
+</html>

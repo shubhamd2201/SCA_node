@@ -1,0 +1,16 @@
+{
+  "name": "node_lerning",
+  "version": "1.0.0",
+  "description": "express and node",
+  "main": "index.js",
+  "scripts": {
+    "start": "index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "shubhamdubey",
+  "license": "ISC",
+  "dependencies": {
+    "express": "~4.18.2",
+    "nodemon": "^3.0.2"
+  }
+}

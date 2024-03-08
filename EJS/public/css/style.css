@@ -1,0 +1,8 @@
+*{margin: 0; padding: 0;}
+body{text-align: center; background-color: aliceblue; }
+.container{max-width: 1400px; margin-inline: auto; padding-inline: 50px;}
+header{ padding: 40px 0px; background-color: #eee;}
+.row{display: flex; justify-content: space-between; align-items: center;}
+nav ul{display: flex; justify-content: space-between; list-style: none; }
+nav{width:80%; max-width: 500px;}
+section{padding: 40px 0px;}
